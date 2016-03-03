@@ -20,7 +20,7 @@
         "prejst": "./bin/prejst"
     },
     "scripts": {
-        "test": "tmod ./test/tpl"
+        "test": "prejst ./test/tpl"
     },
     "dependencies": {
         "uglify-js": "2.4.0",
