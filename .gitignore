@@ -1,0 +1,8 @@
+.cache
+.debug.js
+.DS_Store
+*.sublime-workspace
+node_modules
+demo
+*.iml
+.idea/

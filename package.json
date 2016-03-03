@@ -1,0 +1,31 @@
+{
+    "name": "prejst",
+    "version": "1.0.0",
+    "readmeFilename": "README.md",
+    "description": "underscore Template Compiler",
+    "homepage": "https://github.com/piza/prejst",
+    "keywords": [
+        "template",
+        "underscore",
+        "RequireJS",
+        "AMD"
+    ],
+    "author": "piza",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/piza/prejst.git"
+    },
+    "main": "./src/prejst.js",
+    "bin": {
+        "prejst": "./bin/prejst"
+    },
+    "scripts": {
+        "test": "tmod ./test/tpl"
+    },
+    "dependencies": {
+        "uglify-js": "2.4.0",
+        "semver": "2.3.0",
+        "underscore":"1.8.3"
+    },
+    "license": "BSD"
+}

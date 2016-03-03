@@ -1,0 +1,15 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "dependencies": {
+        "prejst": "1.0.0"
+    },
+    "prejst-config": {
+        "output": "../build",
+        "charset": "utf-8",
+        "compress": true,
+        "runtime": "template.js",
+        "minify": false,
+        "debug":true
+    }
+}

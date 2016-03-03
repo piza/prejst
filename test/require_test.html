@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RequireJS - 调用模板演示</title>
+    <script src="../../test/js/require.js"></script>
+</head>
+
+<body>
+
+<div id="doc">loading..</div>
+<div id="login">loading..</div>
+<div id="welcome">loading..</div>
+
+<script>
+    // 演示JSON数据
+    var data = {
+        welcome:'hello world;'
+    };
+
+
+    require(['./build/template'], function (template) {
+        document.getElementById('doc').innerHTML = template.searchView(data);
+        document.getElementById('login').innerHTML = template.loginModule.login(data);
+        document.getElementById('welcome').innerHTML = template.welcomeModule.wrapper(data);
+
+    });
+</script>
+</body>
+</html>
+
+
+
