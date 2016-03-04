@@ -6,7 +6,7 @@
 
 'use strict';
 
-var version = require('../../package.json').version;
+var version = require('../package.json').version;
 //var AOTcompile = require('./AOTcompile.js');
 var defaults = require('./defaults.js');
 //var runtime = require('./runtime.js');
@@ -114,7 +114,7 @@ var Prejst = function (base, options) {
 
     this.log("start build...\n");
     // 输出运行时 TODO: 这个时机需要优化
-    this._buildAll();
+    //this.buildAll();
 };
 
 
@@ -237,7 +237,7 @@ Prejst.prototype = {
         var json = this['package.json'];
 
         var options = json[configName];
-        var userConfigList = Object.keys(Tmod.defaults);
+        var userConfigList = Object.keys(Prejst.defaults);
 
 
         // 只保存指定的字段
@@ -254,7 +254,7 @@ Prejst.prototype = {
         return file;
     },
 // 编译运行时
-    _buildAll: function ( metadata, callback) {
+    buildAll: function ( metadata, callback) {
 
         metadata = metadata || {};
         callback = callback || function () {};
@@ -331,7 +331,40 @@ Prejst.prototype = {
         }
     },
 
+    /**
+     * 启动即时编译，监听文件修改自动编译
+     */
+    watch: function () {
 
+        // 监控模板目录
+        this.on('watch', function (data) {
+
+            var type = data.type;
+            var fstype = data.fstype;
+            var target = data.target;
+
+            if (target && fstype === 'file') {//
+
+                if (type === 'delete') {
+
+                    this.emit('delete', {
+                        id: this._toId(target),
+                        sourceFile: target
+                    });
+
+                } else if (/updated|create/.test(type)) {
+
+                    this.emit('change', {
+                        id: this._toId(target),
+                        sourceFile: target
+                    });
+
+                }
+            }
+
+        });
+
+    },
     /**
      * 名称筛选器
      * @param   {String}
@@ -371,10 +404,6 @@ Prejst.prototype = {
 
         var cwd = process.cwd();
         var base = this.base;
-
-        // 忽略大小写
-        options.type = options.type.toLowerCase();
-  
 
         // 模板合并规则
         // 兼容 0.0.3-rc3 之前的配置

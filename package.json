@@ -1,31 +1,39 @@
 {
-    "name": "prejst",
-    "version": "1.0.0",
-    "readmeFilename": "README.md",
-    "description": "underscore Template Compiler",
-    "homepage": "https://github.com/piza/prejst",
-    "keywords": [
-        "template",
-        "underscore",
-        "RequireJS",
-        "AMD"
-    ],
-    "author": "piza",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/piza/prejst.git"
-    },
-    "main": "./src/prejst.js",
-    "bin": {
-        "prejst": "./bin/prejst"
-    },
-    "scripts": {
-        "test": "prejst ./test/tpl"
-    },
-    "dependencies": {
+  "name": "prejst",
+  "version": "1.0.1",
+  "description": "precompile underscore jst files into a amd js file",
+  "main": "./src/prejst.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "bin": {
+    "prejst": "./bin/prejst"
+  },
+  "scripts": {
+    "test": "test ./test/tmpFiles"
+  },
+"dependencies": {
         "uglify-js": "2.4.0",
         "semver": "2.3.0",
         "underscore":"1.8.3"
     },
-    "license": "BSD"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/piza/prejst.git"
+  },
+  "keywords": [
+    "prejst",
+    "underscore",
+    "template",
+    "node",
+    "jst",
+    "amd"
+  ],
+  "author": "peter",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/piza/prejst/issues"
+  },
+  "homepage": "https://github.com/piza/prejst#readme"
 }
