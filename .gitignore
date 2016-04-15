@@ -6,3 +6,4 @@ node_modules
 demo
 *.iml
 .idea/
+node_modules/

@@ -1,6 +1,6 @@
 {
   "name": "prejst",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "precompile underscore jst files into a amd js file",
   "main": "./src/prejst.js",
   "directories": {
